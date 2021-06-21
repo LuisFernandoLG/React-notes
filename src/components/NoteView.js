@@ -1,0 +1,54 @@
+import styled from "styled-components";
+import { Note } from "./Note";
+
+export const NoteView = ({ title, content, color, id, handleChange, deleteNote }) => {
+   return (
+      <NoteViewStyled color={color}>
+         <button onClick={()=>deleteNote(id)}> x </button>
+         <Note
+            id={id}
+            title={title}
+            content={content}
+            color={color}
+            handleChange={handleChange}
+         />
+      </NoteViewStyled>
+   );
+};
+
+const NoteViewStyled = styled.div`
+    background: #${({color})=>color};
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+
+    button{
+        /* inset: 0 0 0 0 0; */
+        display: none;
+        position: absolute;
+        right: 5%;
+        top: 5%;
+        color: #fff;
+        outline: none;
+        border: none;
+        background: transparent;
+        font-size: 20px;
+        
+    }
+
+    transition: box-shadow .3s ease;
+
+    button:hover{
+        background: rba(0,0,0,0.19);
+    }
+
+
+    &:hover{
+        box-shadow: 2px 2px 15px 5px rgba(0,0,0,0.19);
+        button{
+            display: block;
+        }
+    }
+
+
+`;
