@@ -23,14 +23,22 @@ export const NoteForm = ({ addNote }) => {
    const handleSubmit = (e) => {
       e.preventDefault();
       addNote(form);
-      setForm(initialForm);
+      const initialFormNew = { ...initialForm, color: form.color };
+      console.log(initialFormNew)
+      setForm(initialFormNew);
    };
 
    const id = "form";
 
    return (
       <StyledForm onSubmit={handleSubmit} bgColor={form.color}>
-         <Note title={form.title} content={form.content} color={form.color} handleChange={handleChange} id={id}/>
+         <Note
+            title={form.title}
+            content={form.content}
+            color={form.color}
+            handleChange={handleChange}
+            id={id}
+         />
       </StyledForm>
    );
 };
