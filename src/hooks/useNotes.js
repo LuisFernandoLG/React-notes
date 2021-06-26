@@ -1,9 +1,24 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import {db} from "../firebase"
+
 
 export const useNotes = () => {
    const [notes, setNotes] = useState([]);
+
+
+   const getNotes =  ()=>{
+      const querySnapshot = await db.collection("notes").onSnapshot(()=>{
+
+      });
+      
+   }
+
    useEffect(() => {
+
+
+      
+
       if (!localStorage.getItem("notesList")) {
          localStorage.setItem("notesList", []);
       } else {
@@ -11,11 +26,14 @@ export const useNotes = () => {
       }
    }, []);
 
+
    useEffect(() => {
       localStorage.setItem("notesList", JSON.stringify(notes));
    }, [notes]);
 
-   const addNote = (note) => {
+   const addNote = async (note) => {
+      await db.collection("notes").doc().set(note)
+
       setNotes([...notes, note]);
       localStorage.setItem("notesList", notes);
    };
