@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import { autoGrow } from "../helpers/autoGrow";
 import { Note } from "./Note";
 
 const initialForm = {
@@ -10,6 +11,8 @@ const initialForm = {
 
 export const NoteForm = ({ addNote }) => {
    const [form, setForm] = useState(initialForm);
+   const titleTextArea = useRef(null)
+   const contentTextArea = useRef(null)
 
    const handleChange = (id, e) => {
       let name = e.target.name.includes("color") ? "color" : e.target.name;
@@ -30,6 +33,11 @@ export const NoteForm = ({ addNote }) => {
 
    const id = "form";
 
+   useEffect(()=>{
+      autoGrow(titleTextArea.current)
+      autoGrow(contentTextArea.current)
+   }, [form])
+
    return (
       <StyledForm onSubmit={handleSubmit} bgColor={form.color}>
          <Note
@@ -38,36 +46,18 @@ export const NoteForm = ({ addNote }) => {
             color={form.color}
             handleChange={handleChange}
             id={id}
+            titleTextArea={titleTextArea}
+            contentTextArea={contentTextArea}
          />
       </StyledForm>
    );
 };
 
 const StyledForm = styled.form`
+margin-top: 20px;
    display: flex;
    flex-direction: column;
    padding: 10px;
-   width: min-content;
+   width: 40%;
    background: #${({ bgColor }) => bgColor};
-
-   input[type="text"] {
-      border-bottom: 2px solid #27272739;
-   }
-
-   input,
-   textarea {
-      background: transparent;
-      border: none;
-
-      outline: none;
-      padding: 10px;
-   }
-
-   textarea {
-      resize: none;
-   }
-
-   input[type="text"]:focus {
-      border-bottom: 2px solid #272727;
-   }
 `;

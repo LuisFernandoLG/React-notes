@@ -1,18 +1,39 @@
-import styled from "styled-components"
-import { NoteView } from "./NoteView"
+import { useContext } from "react";
+import styled from "styled-components";
+import ThemeContext from "../context/ThemeContext";
+import NoteViewx from "./NoteViewx";
 
-export const NotesWrapper = ({notes, handleChange, deleteNote}) => {
+const NotesWrapper = ({ notes, handleChange, deleteNote, handleBlur, updateNote }) => {
+   const { theme } = useContext(ThemeContext);
 
-    return (
-        <Wrapper>
-            { notes.map( (note, index)=> ( <NoteView deleteNote={deleteNote} key={index} id={index} title={note.title} content={note.content} color={note.color} handleChange={handleChange} />) )  }
-        </Wrapper>
-    )
-}
+   return (
+      <Wrapper theme={theme}>
+         {notes.map((note) => (
+            <NoteViewx
+               key={note.id}
+               id={note.id}
+               title={note.title}
+               content={note.content}
+               color={note.color}
+               date = {note.date}
+               deleteNote = {deleteNote}
+               updateNote = {updateNote}
+            />
+         ))}
+      </Wrapper>
+   );
+
+};
+
+export default (NotesWrapper)
 
 const Wrapper = styled.div`
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 10px;
-`
+   background: #${({ theme }) => theme.background};
+   /* background: red; */
+   margin-top: 20px;
+   display: grid;
+   padding: 10px;
+   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+   gap: 10px;
+`;

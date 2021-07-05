@@ -17,6 +17,7 @@ export const RadioColor = ({ color, checked, idGroupRadio, handleChange }) => {
 const RadioInput = styled.input`
       /* position: absolute; */
       appearance: none;
+      cursor: pointer;
 
       &:checked::before {
          opacity: 0.4;
@@ -27,8 +28,8 @@ const RadioInput = styled.input`
          content: "";
          position: relative;
          display: block;
-         width: 20px;
-         height: 20px;
+         width: 1.5625rem;
+         height: 1.5625rem;
          border-radius: 50%;
          background: #${props => props.value};
          transition: background 0.3s ease;

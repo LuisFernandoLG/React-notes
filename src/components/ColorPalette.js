@@ -1,4 +1,3 @@
-import { useEffect } from "react/cjs/react.production.min";
 import styled from "styled-components";
 import { RadioColor } from "./RadioColor";
 
@@ -22,5 +21,7 @@ export const ColorPalette = ({ colorPicked, handleChange, id }) => {
 };
 
 const ColorPaletteStyled = styled.div`
-
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
 `
