@@ -20,14 +20,15 @@ const initialTheneName = getLocalTheme();
 const initialThemes = {
    dark: {
       background: "272727",
-      secundaryColor: "5F939A",
+      secundaryColor: "303030",
       color: "EEEEEE",
+      error : "CF6679"
    },
 
    light: {
-      background: "eeeeee",
-      secundaryColor: "E1E8EB",
-      color: "272727",
+      background: "9AA0A6",
+      secundaryColor: "383c4a",
+      color: "dedede",
    },
 };
 

@@ -11,6 +11,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { AuthProvider } from "./context/AuthContext";
 import LoginPage from "./routes/LoginPage";
 import { PrivateRoute } from "./routes/PrivateRoute";
+import { TestingPage } from "./routes/TestingPage";
 
 function App() {
    return (
@@ -18,13 +19,16 @@ function App() {
          <Router>
             <AuthProvider>
                <ThemeProvider>
+                  
                   <NavBar />
 
                   <Switch>
                      <Route path="/settings" children={SettingsPage} />
                      <Route path="/login" component={LoginPage} />
+                     <Route path="/testing" component={TestingPage} />
                      <PrivateRoute path="/" exact component={HomePage} />
                      <Route path="*" component={NotFoundPage} />
+
 
                   </Switch>
                </ThemeProvider>

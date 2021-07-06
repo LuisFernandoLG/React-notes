@@ -27,7 +27,6 @@ export const NoteForm = ({ addNote }) => {
       e.preventDefault();
       addNote(form);
       const initialFormNew = { ...initialForm, color: form.color };
-      console.log(initialFormNew)
       setForm(initialFormNew);
    };
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ThemeContext from "../context/ThemeContext";
 import NoteViewx from "./NoteViewx";
 
-const NotesWrapper = ({ notes, handleChange, deleteNote, handleBlur, updateNote }) => {
+const NotesWrapper = ({ notes, deleteNote,updateNote }) => {
    const { theme } = useContext(ThemeContext);
 
    return (

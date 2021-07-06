@@ -4,13 +4,13 @@ import styled from "styled-components";
 import ThemeContext from "../context/ThemeContext";
 
 export const User = () => {
-   const { user } = useContext(AuthContext);
+   const { user, imageUser } = useContext(AuthContext);
    const { theme } = useContext(ThemeContext);
 
    return (
       <Wrapper theme={theme}>
-         <Avatar theme={theme} src={user.avatarLink} />
-         <h3> Bienvenido <span>{user.name}</span></h3>
+         <Avatar theme={theme} src={imageUser} />
+         <h3><span>{user.name}</span></h3>
       </Wrapper>
    );
 };
@@ -22,11 +22,15 @@ const Wrapper = styled.div`
    align-items: center;
    padding: 0.625rem;
 
+   background: #${({theme})=>theme.secundaryColor};
+
    h3 span {
+      font-size: 1em;
       color: #${({theme})=>theme.color};
-      padding: 5px 10px;
+      /* padding: 5px 10px; */
       border-radius: 12px;
-      background: #${({theme})=>theme.background};
+      
+      /* background: #${({theme})=>theme.background}; */
    }
 
 

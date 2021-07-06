@@ -87,9 +87,11 @@ const NoteTitle = styled.h3`
    font-weight: 700;
    margin-bottom: 5px;
 `;
-const NoteContent = styled.p`
+const NoteContent = styled.pre`
    font-weight: 300;
    line-height: 1.5em;
+   font-family: "nunito";
+   overflow: hidden;
 `;
 
 export default NoteViewx;

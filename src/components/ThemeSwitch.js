@@ -48,7 +48,7 @@ const ThemeSwitchStyled = styled.div`
       left: 0.3125em;
       width: 5.625em;
       height: 5.625em;
-      background: #fff;
+      background: #${({ theme }) => theme.color};;
       border-radius: 5.625em;
       transition: 0.3s;
    }
