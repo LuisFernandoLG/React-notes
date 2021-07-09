@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { RadioColor } from "./RadioColor";
 
-const palette = ["FFB5E8", "ACE7FF", "AFF8DB"];
+const palette = ["FFB5E8", "ACE7FF", "AFF8DB", "FFF"];
 
 export const ColorPalette = ({ colorPicked, handleChange, id }) => {
 
    return (
-      <ColorPaletteStyled>
+      <ColorPaletteStyled >
          {palette.map((color, index) => (
             <RadioColor
                color={color}

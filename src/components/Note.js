@@ -4,7 +4,7 @@ import { ColorPalette } from "./ColorPalette";
 export const Note = ({ title, content, color, id, handleChange, titleTextArea, contentTextArea }) => {
    return (
       <NoteStyled color={color}>
-         <input className="title"
+         <input  className="title"
          ref={titleTextArea}
             placeholder="title"
             type="text"

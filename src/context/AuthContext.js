@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const AuthContext = createContext();
 
@@ -15,6 +16,8 @@ const AuthProvider = ({ children }) => {
    const [user, setUser] = useState(initialUser);
    const [imageUser, setImgUser] = useState(initialImageUser)
 
+   let history = useHistory()
+
    const login = (user, img) => {
       setAuth(true);
       setUser(user);
@@ -26,6 +29,7 @@ const AuthProvider = ({ children }) => {
       setAuth(false);
       setUser({});
       setImgUser(null)
+      history.push("/")
    };
 
    useEffect(() => {

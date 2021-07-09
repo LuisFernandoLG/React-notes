@@ -65,5 +65,6 @@ export const useNotes = () => {
       deleteNote,
       isLoading,
       updateNote,
+      fetchNotes
    };
 };

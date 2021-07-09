@@ -1,11 +1,16 @@
 import happyFace from "../img/happyFace.svg"
 import styled from "styled-components"
+import { useContext } from "react"
+import ThemeContext from "../context/ThemeContext"
 
 export const EmptyStateView = () => {
+
+    const { theme } = useContext(ThemeContext)
+
     return (
-        <EmptyStateViewStyled>
-            <img src={happyFace} alt="" />
-            <p>Add a new note</p>
+        <EmptyStateViewStyled theme ={theme}>
+            {/* <img src={happyFace} alt="" /> */}
+            <p>Add a new note (:</p>
         </EmptyStateViewStyled>
     )
 }
@@ -17,7 +22,8 @@ const EmptyStateViewStyled = styled.div`
     width: 100%;
     height: 30vh;
 
-    background: #CED4D366;
+    /* background: #${({theme})=>theme.background}; */
+    color: #${({theme})=>theme.secundaryColor};
 
     display: flex;
     flex-direction: column;

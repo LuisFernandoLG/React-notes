@@ -42,6 +42,7 @@ export const NavBar = () => {
 const NavBarStyled = styled.nav`
    background: #${({ theme }) => theme.background};
    padding: 2rem;
+   margin: 0 auto;
 
    display: flex;
    justify-content: space-evenly;

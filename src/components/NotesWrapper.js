@@ -30,6 +30,7 @@ export default (NotesWrapper)
 const Wrapper = styled.div`
    background: #${({ theme }) => theme.background};
    /* background: red; */
+   
    margin-top: 20px;
    display: grid;
    padding: 10px;

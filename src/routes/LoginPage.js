@@ -49,9 +49,9 @@ const LoginPage = () => {
 
 
    return (
-      <div>
+      <LogingPageStyled>
          <h2>Login page</h2>
-         <form onSubmit={handleSubmit}>
+         <LoginForm onSubmit={handleSubmit}>
 
             <input
                placeholder="Name"
@@ -68,12 +68,20 @@ const LoginPage = () => {
             </InputImgContainer>
 
             <input type="submit" />
-         </form>
-      </div>
+         </LoginForm>
+      </LogingPageStyled>
    );
 };
 
 export default LoginPage;
+
+const LoginForm = styled.form`
+
+`
+
+const LogingPageStyled = styled.div`
+   width: 100%;
+`
 
 const InputImgContainer = styled.div`
    position: absolute;
@@ -81,7 +89,7 @@ const InputImgContainer = styled.div`
    border-radius: 50%;
    overflow: hidden;
 
-   margin: 5px;
+   margin: 20px;
 
    width: 6em;
    height: 6em;
