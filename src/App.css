@@ -3,7 +3,30 @@ body{
   /* background: #282c34; */
   width: 95%;
   margin: 20px auto;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #E4E4E4;
+  font-family: 'Nunito', sans-serif;
+  /* background: #E4E4E4; */
 }
 
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes end-rotate {
+  from {
+
+    }
+  to {
+    transform: rotate(0);
+  }
+}
+
+/* Normalize Luis */
+
+a{
+  text-decoration: none;
+}

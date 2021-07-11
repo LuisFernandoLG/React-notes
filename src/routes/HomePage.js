@@ -10,7 +10,7 @@ export const HomePage = () => {
 
    return (
       <div>
-         {/* {isLoading && <Loader />} */}
+         
          <HeaderOptions fetchNotes={fetchNotes} isLoading={isLoading} />
 
          <NoteForm addNote={addNote} />

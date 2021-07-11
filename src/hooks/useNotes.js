@@ -4,12 +4,14 @@ import { getDate } from "../helpers/dateHelpers";
 import { encodeObjectBase64, decodeObjectBase64 } from "../helpers/encodeHelper";
 import { useFetch } from "./useFetch";
 
+const url = "https://react--notes.herokuapp.com";
+
 export const useNotes = () => {
    const [notes, setNotes] = useState(null);
    const { isLoading, errors, get, put, _delete, post } = useFetch();
 
    const fetchNotes = async () => {
-      let data = await get("http://127.0.0.1:8000/getall");
+      let data = await get(`${url}/getall`);
       if (!data) return;
       const dataDecoded = data.results.map((noteEncoded) =>
          decodeObjectBase64(noteEncoded)
@@ -29,12 +31,12 @@ export const useNotes = () => {
    const addNote = async (note) => {
       note = { ...note, date: getDate() };
       let options = { body: encodeObjectBase64(note) };
-      await post("http://127.0.0.1:8000/note", options);
+      await post(`${url}/note`, options);
       await fetchNotes();
    };
 
    const deleteNote = async (id) => {
-      await _delete(`http://127.0.0.1:8000/note/${id}`);
+      await _delete(`${url}/note/${id}`);
       showToast("Deleted :(");
       await fetchNotes();
    };
@@ -52,7 +54,7 @@ export const useNotes = () => {
    };
 
    const updateNote = async (id, note) => {
-      await put(`http://127.0.0.1:8000/note/${id}`, {
+      await put(`${url}/note/${id}`, {
          body: encodeObjectBase64(note),
       });
       await fetchNotes();

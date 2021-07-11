@@ -12,7 +12,7 @@ const NoteViewx = ({ id, title, content, color, date, deleteNote, updateNote }) 
 
    return (
       <>
-         <NoteViewxStyled color={color} onClick={openNote}>
+         <NoteViewxStyled theme={theme} color={color} onClick={openNote}>
             <NoteTitle>{title}</NoteTitle>
             <NoteContent>{content}</NoteContent>
             <NoteDate theme={theme}>{date}</NoteDate>
@@ -61,7 +61,8 @@ const NoteViewxStyled = styled.div`
    cursor: pointer;
 
 
-   border-radius: 12px;
+   border-radius: 8px;
+   /* border: 8px solid #${({theme})=>theme.color}; */
    padding: 1em;
    height: min-content;
 

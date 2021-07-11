@@ -15,7 +15,7 @@ export const SyncNotesButton = ({ fetchNotes, isLoading }) => {
       if (isLoading === null) return;
 
       if (isLoading) syncButtonRef.current.style.animation = "rotate 1s normal infinite";
-      else syncButtonRef.current.style.animation = "none";
+      else syncButtonRef.current.style.animation = "end-rotate 0.2s ease-out";
    });
 
    return (
@@ -37,6 +37,7 @@ export const SyncNotesButton = ({ fetchNotes, isLoading }) => {
 const ButtonStyled = styled.button`
    color: #${({ theme }) => theme.color};
    border-radius: 20%;
+   
 
    padding: 8px;
    border: none;
